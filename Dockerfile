@@ -20,7 +20,8 @@ COPY . .
 RUN composer install --no-dev --optimize-autoloader
 
 # Run database migrations (optional, be cautious)
-RUN php artisan migrate --force
+RUN php artisan migrate --force && php artisan db:seed --force
+
 
 # Generate Passport encryption keys (no interaction)
 RUN php artisan passport:keys --no-interaction
