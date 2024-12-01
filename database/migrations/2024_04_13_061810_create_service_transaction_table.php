@@ -15,9 +15,9 @@ return new class extends Migration
             $table->unsignedBigInteger("service_id");
             $table->unsignedBigInteger("transaction_id");
             $table->decimal('price',10,2);
-                    $table->foreign("service_id")->references("id")->on("services")->onDelete("cascade");
-                    $table->foreign("transaction_id")->references("id")->on("transactions")->onDelete("cascade");
-                    $table->primary(["service_id", "transaction_id","price"]);
+            $table->foreign("service_id")->references("id")->on("services")->onDelete("cascade");
+            $table->foreign("transaction_id")->references("id")->on("transactions")->onDelete("cascade");
+            $table->primary(["service_id", "transaction_id","price"]);
             $table->timestamps();
         });
     }
