@@ -24,10 +24,10 @@ RUN php artisan migrate --force && php artisan db:seed --force
 
 
 # Generate Passport encryption keys (no interaction)
-RUN php artisan passport:keys --no-interaction
+# RUN php artisan passport:keys --no-interaction
 
 # Create a personal access client (no interaction)
-RUN php artisan passport:client --personal --no-interaction
+# RUN php artisan passport:client --personal --no-interaction
 
 # Create a symbolic link for storage
 RUN php artisan storage:link
