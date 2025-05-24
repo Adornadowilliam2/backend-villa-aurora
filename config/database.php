@@ -38,6 +38,24 @@ return [
             'prefix' => '',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
+      'sqlsrv' => [
+            'driver' => 'sqlsrv',
+            'host' => env('DB_HOST', 'localhost'),
+            'port' => env('DB_PORT', '1433'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', ''),
+            'password' => env('DB_PASSWORD', ''),
+            'charset' => 'utf8',
+            'prefix' => '',
+            'options' => extension_loaded('sqlsrv') ? array_filter([
+                PDO::SQLSRV_ATTR_DIRECT_QUERY => true,
+                'TrustServerCertificate' => true,
+                'MultipleActiveResultSets' => true,
+                'Authentication' => 'Windows', // This enables Windows Authentication
+            ]) : [],
+        ],
+
+
 
         'mysql' => [
             'driver' => 'mysql',
